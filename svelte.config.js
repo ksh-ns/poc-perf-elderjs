@@ -3,9 +3,11 @@ const sveltePreprocess = require('svelte-preprocess');
 module.exports = {
   preprocess: [
     sveltePreprocess({
-      postcss: {
-        plugins: [require('autoprefixer')],
-      },
+      defaults: { style: 'postcss' },
+      postcss: require('./postcss.config'),
     }),
   ],
+  compilerOptions: {
+    css: false,
+  },
 };
